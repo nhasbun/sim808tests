@@ -16,6 +16,7 @@ fopen(stream);
 
 %% Prueba de Comando inicial
 funcionando = false; % estado inicial sin funcionamiento del modulo
+disp('AT');
 fprintf(stream, 'AT\n'); % Enviamos comando AT, para revisar si el modulo
 % esta funcional
 out = leerStream(stream, 2); % Leer segunda linea del stream
