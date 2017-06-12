@@ -22,7 +22,7 @@ function varargout = gui(varargin)
 
 % Edit the above text to modify the response to help gui
 
-% Last Modified by GUIDE v2.5 11-Jun-2017 03:13:24
+% Last Modified by GUIDE v2.5 12-Jun-2017 18:29:15
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -71,7 +71,7 @@ function gui_OpeningFcn(hObject, eventdata, handles, varargin)
   end
 
 % --- Outputs from this function are returned to the command line.
-function varargout = gui_OutputFcn(hObject, eventdata, handles) 
+function varargout = gui_OutputFcn(hObject, eventdata, handles)
   % varargout  cell array for returning output args (see VARARGOUT);
   % hObject    handle to figure
   % eventdata  reserved - to be defined in a future version of MATLAB
@@ -191,3 +191,29 @@ function endCallBtn_Callback(hObject, eventdata, handles)
   global stream
   disp('Colgar... ');
   endCall(stream);
+
+
+% --- Executes on button press in poweroff.
+function poweroff_Callback(hObject, eventdata, handles)
+  % hObject    handle to poweroff (see GCBO)
+  % eventdata  reserved - to be defined in a future version of MATLAB
+  % handles    structure with handles and user data (see GUIDATA)
+  global stream
+  disp('Apagando Modulo...');
+  disp('AT+CPOWD=1');
+  fprintf(stream, 'AT+CPOWD=1\n'); % poweroff
+  cerrarStream(stream);
+
+
+% --- Executes on button press in autoAnswer.
+function autoAnswer_Callback(hObject, eventdata, handles)
+  % hObject    handle to autoAnswer (see GCBO)
+  % eventdata  reserved - to be defined in a future version of MATLAB
+  % handles    structure with handles and user data (see GUIDATA)
+
+  % Hint: get(hObject,'Value') returns toggle state of autoAnswer
+  global stream
+  botonPresionado = get(hObject, 'Value');
+  if(botonPresionado)
+    ringWatcher(stream, hObject);
+  end
