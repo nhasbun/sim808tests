@@ -18,3 +18,9 @@ Instructions for flashing could be found [here](https://www.elecrow.com/wiki/ind
 **Model Number**: FZ1735
 
 With the shield I got [this link](https://www.adrive.com/public/P7QRkq/FZ1735-SIM808%20%E5%A4%A7V3.1.rar) to get started with the product where you can find some manuals and basic tools.
+
+## GPRS Internet Connection ##
+
+For internet configuration it was enough reading the `SIM800 Series_TCPIP_Application Note_V1.02` document.
+
+For configuring an APN which is using username and password it was useful to read [this webpage](https://wiki.octanis.org/sim800). 
